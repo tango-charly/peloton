@@ -1,0 +1,282 @@
+{
+ "format_version": 1,
+ "id": "etape_montagne_01",
+ "name": "Étape 1 — Arrivée au sommet de la Combe Noire (fictive)",
+ "segments": [
+  {
+   "length_m": 2000,
+   "grade_pct": 0.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 1.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": -1.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 2.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 0.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": -0.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 3.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": -2.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 1.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 0.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 0.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": -1.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 2.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": -0.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 0.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 4.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 5.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 6.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 6.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 7.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 6.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 6.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 5.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": -5.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": -6.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": -7.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": -6.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": -6.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": -5.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": -4.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": -3.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": -1.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 0.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 0.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 0.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 1.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 0.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 0.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": -0.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 1.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 2000,
+   "grade_pct": 1.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 6.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 7.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 7.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 8.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 8.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 7.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 8.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 9.0,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 7.5,
+   "surface": "asphalt"
+  },
+  {
+   "length_m": 1000,
+   "grade_pct": 6.5,
+   "surface": "asphalt"
+  }
+ ],
+ "sprints": [
+  {
+   "at_m": 20000,
+   "name": "Sprint intermédiaire de Saint-Aubrac"
+  }
+ ],
+ "climbs": [
+  {
+   "start_m": 30000,
+   "end_m": 38000,
+   "category": 2,
+   "name": "Col de Brévannes"
+  },
+  {
+   "start_m": 66000,
+   "end_m": 76000,
+   "category": 1,
+   "name": "Combe Noire"
+  }
+ ]
+}

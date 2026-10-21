@@ -4,5 +4,5 @@ set -euo pipefail
 : "${GODOT:?Définir GODOT vers Godot 4.7.2}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 "$GODOT" --headless --path "$ROOT" --import >/dev/null 2>&1
-"$GODOT" --headless --path "$ROOT" --script res://tests/run_tests.gd
+timeout 600 "$GODOT" --headless --path "$ROOT" --script res://tests/run_tests.gd < /dev/null
 "$GODOT" --headless --path "$ROOT" --quit-after 30 | grep "\[boot\]"

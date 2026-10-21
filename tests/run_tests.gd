@@ -5,6 +5,7 @@ extends SceneTree
 
 const SUITES: Array[String] = [
 	"res://tests/test_persistence.gd",
+	"res://tests/test_race.gd",
 ]
 
 
@@ -17,8 +18,9 @@ func _initialize() -> void:
 	var failed := 0
 	for path in SUITES:
 		var script: GDScript = load(path)
-		if script == null:
-			printerr("ÉCHEC suite introuvable ou invalide : %s" % path)
+		# Une suite qui ne compile pas doit échouer, pas bloquer le lanceur.
+		if script == null or not script.can_instantiate():
+			printerr("ÉCHEC suite introuvable ou invalide (erreur de compilation ?) : %s" % path)
 			failed += 1
 			continue
 		var suite = script.new()
