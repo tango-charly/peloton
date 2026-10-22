@@ -6,14 +6,27 @@
     "name": "PROJECT PELOTON",
     "language": "fr-FR",
     "created_on": "2026-10-22",
-    "revision": 2,
+    "revision": 3,
     "revised_on": "2026-10-22",
     "stage": "preproduction",
     "purpose": "Permettre à une IA codeuse de construire le jeu par tickets vérifiables, sans relire toute la conversation."
   },
   "changelog": [
-    {"revision": 1, "date": "2026-10-22", "summary": "Spécification initiale."},
-    {"revision": 2, "date": "2026-10-22", "summary": "Direction artistique confirmée : stylisé soigné (réalisme écarté). Stack et versions verrouillées (Godot 4.7.2, godot-sqlite v4.7). FTMS : GDBLE en premier, pont local en repli. Nouveau ticket HW-000 (interface + FakeTrainer). ART-001 avancé en M1 juste après RACE-001. Dépendances corrigées (SESSION-001, CAREER-001, HUB-001, HW-001). Entité Race ajoutée ; Career.current_date renommé game_date. CORE-001 livré."}
+    {
+      "revision": 1,
+      "date": "2026-10-22",
+      "summary": "Spécification initiale."
+    },
+    {
+      "revision": 2,
+      "date": "2026-10-22",
+      "summary": "Direction artistique confirmée : stylisé soigné (réalisme écarté). Stack et versions verrouillées (Godot 4.7.2, godot-sqlite v4.7). FTMS : GDBLE en premier, pont local en repli. Nouveau ticket HW-000 (interface + FakeTrainer). ART-001 avancé en M1 juste après RACE-001. Dépendances corrigées (SESSION-001, CAREER-001, HUB-001, HW-001). Entité Race ajoutée ; Career.current_date renommé game_date. CORE-001 livré."
+    },
+    {
+      "revision": 3,
+      "date": "2026-10-22",
+      "summary": "D03 tranchée : Zwift Ride + Wahoo KICKR CORE Zwift One. D08 tranchée : 0 €, coureur MakeHuman/MPFB (CC0) + vélo scripté Blender + pédalage par cinématique inverse. Nouveau ticket HW-003 (vitesses virtuelles et boutons Zwift Ride). RACE-001 livré."
+    }
   ],
   "provenance": {
     "conversation_id": "6ad936dc-134c-83ed-b80c-51541c53c5e3",
@@ -24,7 +37,8 @@
       "user_history": "Messages utilisateur récupérés : hub habitable, trophées, profils, carrière, saison annuelle, simulation ou jeu, libre, import et ERG avec accélération entre intervalles.",
       "assistant_visible": "Réponse assistant visible sur les hubs, la carrière, les profils et la verticale, suivie d'une approbation utilisateur avec ajustements.",
       "spec_proposal": "Formalisation proposée dans ce fichier pour rendre les décisions exécutables ; ne constitue pas une citation d'une réponse historique manquante.",
-      "owner_decisions_rev2": "2026-10-22 : rester sur Godot ; style non réaliste « stylisé soigné » ; démarrer le BLE avec GDBLE ; pas d'objectif de chiffre d'affaires à court terme."
+      "owner_decisions_rev2": "2026-10-22 : rester sur Godot ; style non réaliste « stylisé soigné » ; démarrer le BLE avec GDBLE ; pas d'objectif de chiffre d'affaires à court terme.",
+      "owner_decisions_rev3": "2026-10-22 : matériel Zwift Ride + KICKR CORE ; pas de budget d'asset défini, voie gratuite validée ; ajout des vitesses virtuelles."
     },
     "status_vocabulary": {
       "confirmed": "Demandé explicitement par l'utilisateur dans la conversation accessible ou la demande actuelle.",
@@ -45,9 +59,19 @@
       "Des profils, rôles et transferts produisent des carrières différentes.",
       "Une construction progressive compatible avec un budget et une consommation de tokens limités."
     ],
-    "target_audience": {"status": "proposed", "description": "Cyclistes sur home trainer cherchant une motivation de carrière solo et joueurs de cyclisme appréciant simulation et progression."},
-    "business_model": {"status": "unresolved", "value": null, "note": "Pas d'objectif de chiffre d'affaires à court terme (propriétaire, 2026-10-22)."},
-    "initial_platform": {"status": "confirmed", "value": "PC Windows, expérience locale et hors ligne hors éventuels téléchargements explicitement ajoutés."},
+    "target_audience": {
+      "status": "proposed",
+      "description": "Cyclistes sur home trainer cherchant une motivation de carrière solo et joueurs de cyclisme appréciant simulation et progression."
+    },
+    "business_model": {
+      "status": "unresolved",
+      "value": null,
+      "note": "Pas d'objectif de chiffre d'affaires à court terme (propriétaire, 2026-10-22)."
+    },
+    "initial_platform": {
+      "status": "confirmed",
+      "value": "PC Windows, expérience locale et hors ligne hors éventuels téléchargements explicitement ajoutés."
+    },
     "success_signals": [
       "Le joueur peut boucler une saison en combinant étapes jouées et simulées.",
       "Une séance ERG conserve tous ses blocs et réduit le temps passé sur les sections de course sans intervalle.",
@@ -57,27 +81,98 @@
     ]
   },
   "scope": {
-    "vertical_slice": ["Un bus cliquable", "Une étape fictive de montagne", "Trois profils : sprinteur, classique, grimpeur", "Une séance interne et un import structuré simple", "Mode libre et ERG", "Simulation de course", "Mini-carrière persistante", "Un trophée consultable"],
-    "first_complete_release": ["Calendrier annuel complet jouable ou simulable", "Enchaînement de saisons", "Contrats et transferts simples", "Progression physique et de carrière", "Salle à trophées et archives", "Retraite", "Home trainer FTMS sur matériels validés"],
-    "deferred": ["Multijoueur synchrone", "Fantômes ou multijoueur asynchrone", "Licences officielles", "Monde ouvert", "Photoréalisme et rendu réaliste type TDF console ou MyWhoosh", "Voix générées en ligne", "Narration LLM à l'exécution", "Transferts complexes", "Tous les formats d'import", "Toutes les plateformes et tous les home trainers"],
-    "content_policy": {"status": "accepted_direction", "rule": "Équipes, coureurs, épreuves et parcours fictifs inspirés des situations du cyclisme ; contenu original ou sous licence compatible."},
+    "vertical_slice": [
+      "Un bus cliquable",
+      "Une étape fictive de montagne",
+      "Trois profils : sprinteur, classique, grimpeur",
+      "Une séance interne et un import structuré simple",
+      "Mode libre et ERG",
+      "Simulation de course",
+      "Mini-carrière persistante",
+      "Un trophée consultable"
+    ],
+    "first_complete_release": [
+      "Calendrier annuel complet jouable ou simulable",
+      "Enchaînement de saisons",
+      "Contrats et transferts simples",
+      "Progression physique et de carrière",
+      "Salle à trophées et archives",
+      "Retraite",
+      "Home trainer FTMS sur matériels validés"
+    ],
+    "deferred": [
+      "Multijoueur synchrone",
+      "Fantômes ou multijoueur asynchrone",
+      "Licences officielles",
+      "Monde ouvert",
+      "Photoréalisme et rendu réaliste type TDF console ou MyWhoosh",
+      "Voix générées en ligne",
+      "Narration LLM à l'exécution",
+      "Transferts complexes",
+      "Tous les formats d'import",
+      "Toutes les plateformes et tous les home trainers"
+    ],
+    "content_policy": {
+      "status": "accepted_direction",
+      "rule": "Équipes, coureurs, épreuves et parcours fictifs inspirés des situations du cyclisme ; contenu original ou sous licence compatible."
+    },
     "scope_interpretation": "La verticale réduit le contenu, pas l'objectif final de saison complète. Les phases anciennes étaient des suggestions ; l'ordre de livraison détaillé ci-dessous est une proposition."
   },
   "gameplay": {
-    "loop": ["Entrer dans le bus", "Lire calendrier, rôle et briefing", "Choisir simuler ou jouer", "Pour jouer : choisir libre, séance interne ou séance importée", "Effectuer la séance ou la course", "Recevoir résultat et débrief", "Appliquer progression et conséquences", "Consulter trophées et préparer la suite"],
+    "loop": [
+      "Entrer dans le bus",
+      "Lire calendrier, rôle et briefing",
+      "Choisir simuler ou jouer",
+      "Pour jouer : choisir libre, séance interne ou séance importée",
+      "Effectuer la séance ou la course",
+      "Recevoir résultat et débrief",
+      "Appliquer progression et conséquences",
+      "Consulter trophées et préparer la suite"
+    ],
     "season": {
       "status": "confirmed",
       "duration": "Une année de calendrier sportif avec journées de course, entraînement et repos ; aucune obligation de jouer chaque jour.",
-      "player_choices": ["Simuler une course", "Jouer une course librement", "Jouer une course au travers d'un entraînement structuré"],
+      "player_choices": [
+        "Simuler une course",
+        "Jouer une course librement",
+        "Jouer une course au travers d'un entraînement structuré"
+      ],
       "example": "Un grimpeur peut transformer une étape de sprint en une séance Z2 d'une heure, ou la simuler.",
-      "proposed_rules": ["Le calendrier avance explicitement jusqu'au prochain événement sélectionné.", "Une course ne reçoit qu'un seul résultat final persistant.", "Les étapes simulées et jouées alimentent les mêmes classements.", "Une course par étapes agrège les résultats intermédiaires et le classement général.", "Le changement de mode intervient avant une étape ; la reprise après interruption conserve le mode et l'état sauvegardés."]
+      "proposed_rules": [
+        "Le calendrier avance explicitement jusqu'au prochain événement sélectionné.",
+        "Une course ne reçoit qu'un seul résultat final persistant.",
+        "Les étapes simulées et jouées alimentent les mêmes classements.",
+        "Une course par étapes agrège les résultats intermédiaires et le classement général.",
+        "Le changement de mode intervient avant une étape ; la reprise après interruption conserve le mode et l'état sauvegardés."
+      ]
     },
     "modes": {
-      "simulate": {"status": "confirmed", "description": "Résoudre une course sans effort physique du joueur, avec les attributs, la forme, la fatigue, le rôle et les tactiques.", "proposed_behavior": "Traitement rapide déterministe pour une graine donnée ; débrief et conséquences de carrière équivalents à ceux d'un résultat joué."},
-      "free_ride": {"status": "confirmed", "description": "Le joueur gère librement sa puissance et ses changements de vitesse ; la résistance suit le parcours en mode simulation.", "proposed_behavior": "Course en temps réel par défaut, sans cible de puissance ERG imposée. Les commandes tactiques restent distinctes du pédalage."},
-      "structured_internal": {"status": "confirmed", "description": "Séance proposée selon le profil, le rôle et la durée choisie ; exécution en ERG."},
-      "structured_imported": {"status": "confirmed", "description": "Charger sa séance ou celle de son coach ; préserver les durées, intensités, répétitions et récupérations.", "initial_format": {"status": "proposed", "value": "Sous-ensemble ZWO explicitement documenté, converti en modèle interne ; formats additionnels reportés."}},
-      "developer_input": {"status": "proposed", "description": "Source de puissance simulée pour développement, démos et tests hors matériel ; jamais présentée comme une mesure réelle."}
+      "simulate": {
+        "status": "confirmed",
+        "description": "Résoudre une course sans effort physique du joueur, avec les attributs, la forme, la fatigue, le rôle et les tactiques.",
+        "proposed_behavior": "Traitement rapide déterministe pour une graine donnée ; débrief et conséquences de carrière équivalents à ceux d'un résultat joué."
+      },
+      "free_ride": {
+        "status": "confirmed",
+        "description": "Le joueur gère librement sa puissance et ses changements de vitesse ; la résistance suit le parcours en mode simulation.",
+        "proposed_behavior": "Course en temps réel par défaut, sans cible de puissance ERG imposée. Les commandes tactiques restent distinctes du pédalage."
+      },
+      "structured_internal": {
+        "status": "confirmed",
+        "description": "Séance proposée selon le profil, le rôle et la durée choisie ; exécution en ERG."
+      },
+      "structured_imported": {
+        "status": "confirmed",
+        "description": "Charger sa séance ou celle de son coach ; préserver les durées, intensités, répétitions et récupérations.",
+        "initial_format": {
+          "status": "proposed",
+          "value": "Sous-ensemble ZWO explicitement documenté, converti en modèle interne ; formats additionnels reportés."
+        }
+      },
+      "developer_input": {
+        "status": "proposed",
+        "description": "Source de puissance simulée pour développement, démos et tests hors matériel ; jamais présentée comme une mesure réelle."
+      }
     },
     "erg_timeline": {
       "status": "confirmed",
@@ -88,7 +183,17 @@
         "workout_time": "Avance à vitesse réelle quand un bloc de séance est actif ; s'arrête en pause et pendant une transition de course accélérée.",
         "race_time": "Avance en temps réel pendant les fenêtres actives et par simulation rapide entre ces fenêtres."
       },
-      "states": ["READY", "WARMUP", "ACTIVE_BLOCK", "RECOVERY_BLOCK", "RACE_TRANSITION", "COOLDOWN", "PAUSED", "COMPLETED", "ABORTED"],
+      "states": [
+        "READY",
+        "WARMUP",
+        "ACTIVE_BLOCK",
+        "RECOVERY_BLOCK",
+        "RACE_TRANSITION",
+        "COOLDOWN",
+        "PAUSED",
+        "COMPLETED",
+        "ABORTED"
+      ],
       "invariants": [
         "Échauffement, récupération et retour au calme importés sont des blocs réels préservés, pas des sections à sauter.",
         "Une transition de course ne fait avancer aucun bloc de séance et n'ajoute pas d'effort obligatoire.",
@@ -98,71 +203,312 @@
         "Une pause ou une perte de connexion empêche toute progression cachée de la séance.",
         "Un abandon produit un état explicite ; il ne donne pas les récompenses d'une séance complète."
       ],
-      "mapping": {"status": "proposed", "rule": "Construire à l'avance des fenêtres de course correspondant aux blocs. Simuler les liaisons avec le même moteur. Si le parcours est trop court, adapter sa représentation narrative sans tronquer la séance.", "transition_target_policy": "À valider sur matériel : maintenir une cible de récupération sûre ou suspendre proprement le contrôle pendant une transition, puis annoncer la reprise. Aucune valeur arbitraire envoyée à l'aveugle."},
-      "example": {"workout": "Échauffement + 5 × (4 min VO2 + 3 min récupération) + retour au calme", "representation": "Cinq actions de course reliées par des sections accélérées ; les cinq efforts et les cinq récupérations restent intégralement effectués."}
+      "mapping": {
+        "status": "proposed",
+        "rule": "Construire à l'avance des fenêtres de course correspondant aux blocs. Simuler les liaisons avec le même moteur. Si le parcours est trop court, adapter sa représentation narrative sans tronquer la séance.",
+        "transition_target_policy": "À valider sur matériel : maintenir une cible de récupération sûre ou suspendre proprement le contrôle pendant une transition, puis annoncer la reprise. Aucune valeur arbitraire envoyée à l'aveugle."
+      },
+      "example": {
+        "workout": "Échauffement + 5 × (4 min VO2 + 3 min récupération) + retour au calme",
+        "representation": "Cinq actions de course reliées par des sections accélérées ; les cinq efforts et les cinq récupérations restent intégralement effectués."
+      }
     },
     "workout_mission_examples": [
-      {"workout": "5 × 4 min VO2", "mission": "Cinq attaques ou accélérations"},
-      {"workout": "2 × 20 min seuil", "mission": "Relais prolongés, échappée ou ascension régulière"},
-      {"workout": "30/30", "mission": "Relances et chasse"},
-      {"workout": "Z2", "mission": "Contrôle du peloton ou endurance"},
-      {"workout": "8 × 15 s sprint", "mission": "Sprints intermédiaires ou lancement du leader"}
+      {
+        "workout": "5 × 4 min VO2",
+        "mission": "Cinq attaques ou accélérations"
+      },
+      {
+        "workout": "2 × 20 min seuil",
+        "mission": "Relais prolongés, échappée ou ascension régulière"
+      },
+      {
+        "workout": "30/30",
+        "mission": "Relances et chasse"
+      },
+      {
+        "workout": "Z2",
+        "mission": "Contrôle du peloton ou endurance"
+      },
+      {
+        "workout": "8 × 15 s sprint",
+        "mission": "Sprints intermédiaires ou lancement du leader"
+      }
     ],
-    "result_fairness": {"status": "proposed", "rule": "Séparer réussite de séance et résultat de course. Atteindre ses cibles ne garantit pas une victoire. Les récompenses ne dépendent pas artificiellement de la durée physique maximale jouée.", "open_design": "Calibration entre attributs du personnage, puissance réelle normalisée et résultats simulés à expérimenter avant équilibrage."}
+    "result_fairness": {
+      "status": "proposed",
+      "rule": "Séparer réussite de séance et résultat de course. Atteindre ses cibles ne garantit pas une victoire. Les récompenses ne dépendent pas artificiellement de la durée physique maximale jouée.",
+      "open_design": "Calibration entre attributs du personnage, puissance réelle normalisée et résultats simulés à expérimenter avant équilibrage."
+    }
   },
   "hubs": {
     "status": "confirmed",
     "interaction": "Vues de lieux avec objets cliquables, informations lisibles et retour visible après chaque séance.",
     "bus": [
-      {"object": "Tableau tactique", "action": "Briefing, rôle et mission"},
-      {"object": "Vélo ou home trainer", "action": "Préparer et lancer une séance"},
-      {"object": "DS ou coach", "action": "Objectifs, conseils et confiance"},
-      {"object": "Téléphone ou tablette", "action": "Calendrier, messages, contrats et transferts"},
-      {"object": "Casier", "action": "Profil et équipement"},
-      {"object": "Porte", "action": "Accéder à la course préparée"}
+      {
+        "object": "Tableau tactique",
+        "action": "Briefing, rôle et mission"
+      },
+      {
+        "object": "Vélo ou home trainer",
+        "action": "Préparer et lancer une séance"
+      },
+      {
+        "object": "DS ou coach",
+        "action": "Objectifs, conseils et confiance"
+      },
+      {
+        "object": "Téléphone ou tablette",
+        "action": "Calendrier, messages, contrats et transferts"
+      },
+      {
+        "object": "Casier",
+        "action": "Profil et équipement"
+      },
+      {
+        "object": "Porte",
+        "action": "Accéder à la course préparée"
+      }
     ],
-    "trophy_room": {"content": ["Trophées", "Maillots", "Photos", "Vélos marquants", "Palmarès personnel", "Palmarès d'équipe", "Archives par saison"], "interaction": "Cliquer un objet pour consulter date, course, équipe, résultat et statistiques archivées.", "slice": "Un objet gagné ouvre sa fiche persistante ; aucune promesse de replay vidéo."},
-    "training_center": {"status": "accepted_direction", "content": ["Bibliothèque de séances", "Import", "Spécialisation", "Objectifs et blocs de progression"], "delivery": "Fonctions accessibles dans le bus d'abord ; lieu séparé ultérieurement."},
-    "usability": {"status": "proposed", "rules": ["Zones cliquables signalées au survol et au focus", "Navigation clavier alternative", "Texte lisible à distance du home trainer", "Pause et déconnexion accessibles pendant toute séance"]}
+    "trophy_room": {
+      "content": [
+        "Trophées",
+        "Maillots",
+        "Photos",
+        "Vélos marquants",
+        "Palmarès personnel",
+        "Palmarès d'équipe",
+        "Archives par saison"
+      ],
+      "interaction": "Cliquer un objet pour consulter date, course, équipe, résultat et statistiques archivées.",
+      "slice": "Un objet gagné ouvre sa fiche persistante ; aucune promesse de replay vidéo."
+    },
+    "training_center": {
+      "status": "accepted_direction",
+      "content": [
+        "Bibliothèque de séances",
+        "Import",
+        "Spécialisation",
+        "Objectifs et blocs de progression"
+      ],
+      "delivery": "Fonctions accessibles dans le bus d'abord ; lieu séparé ultérieurement."
+    },
+    "usability": {
+      "status": "proposed",
+      "rules": [
+        "Zones cliquables signalées au survol et au focus",
+        "Navigation clavier alternative",
+        "Texte lisible à distance du home trainer",
+        "Pause et déconnexion accessibles pendant toute séance"
+      ]
+    }
   },
   "career": {
     "status": "confirmed",
-    "profiles": ["Sprinteur", "Puncheur", "Coureur de classiques", "Grimpeur", "Rouleur / chrono", "Baroudeur / polyvalent", "Leader de grands tours", "Domestique"],
-    "slice_profiles": ["Sprinteur", "Coureur de classiques", "Grimpeur"],
-    "profile_effects": ["Attributs initiaux", "Missions", "Séances proposées", "Objectifs", "Rôles", "Offres de transfert"],
-    "team_statuses": ["Stagiaire", "Équipier", "Équipier protégé", "Électron libre", "Lieutenant", "Leader", "Légende d'équipe"],
-    "physical_progression": ["Puissance de référence", "Endurance", "Sprint", "Punch", "Récupération", "Résistance aux efforts répétés"],
-    "career_progression": ["Réputation", "Confiance du DS", "Leadership", "Lecture de course", "Popularité", "Attractivité sur le marché"],
-    "progression_policy": {"status": "proposed", "rule": "Distinguer FTP mesurée ou déclarée et attributs ludiques. Une récompense de carrière ne modifie jamais automatiquement la FTP réelle utilisée pour prescrire les cibles."},
-    "contracts": {"fields": ["Équipe", "Saison de début", "Durée", "Rôle promis", "Objectifs", "Salaire ludique ou prestige"], "status": "accepted_direction"},
-    "transfers": {"description": "Offres selon profil, résultats, réputation et besoins des équipes ; arbitrage entre leadership, équipe prestigieuse et rôle d'équipier.", "proposed_minimum": "Fenêtre de fin de saison, deux offres contrastées lorsque le contrat expire, acceptation persistante et effectif cohérent."},
-    "season_rollover": {"status": "proposed", "rules": ["Archiver résultats et classements", "Faire évoluer âge et contrats", "Générer le calendrier suivant", "Conserver trophées, historique et identité des rivaux", "Sauvegarder la transition dans une transaction"]},
-    "retirement": {"description": "Clôturer la carrière et conserver un musée consultable : saisons, équipes, victoires, progression et comparaison aux rivaux.", "proposed_minimum": "Retraite volontaire confirmée dans l'interface, archive en lecture seule et possibilité de créer une nouvelle carrière distincte.", "age_rules": {"status": "unresolved", "value": null}},
-    "rivalries": {"status": "accepted_direction", "delivery": "Identités et historiques persistants d'abord ; narration avancée plus tard."}
+    "profiles": [
+      "Sprinteur",
+      "Puncheur",
+      "Coureur de classiques",
+      "Grimpeur",
+      "Rouleur / chrono",
+      "Baroudeur / polyvalent",
+      "Leader de grands tours",
+      "Domestique"
+    ],
+    "slice_profiles": [
+      "Sprinteur",
+      "Coureur de classiques",
+      "Grimpeur"
+    ],
+    "profile_effects": [
+      "Attributs initiaux",
+      "Missions",
+      "Séances proposées",
+      "Objectifs",
+      "Rôles",
+      "Offres de transfert"
+    ],
+    "team_statuses": [
+      "Stagiaire",
+      "Équipier",
+      "Équipier protégé",
+      "Électron libre",
+      "Lieutenant",
+      "Leader",
+      "Légende d'équipe"
+    ],
+    "physical_progression": [
+      "Puissance de référence",
+      "Endurance",
+      "Sprint",
+      "Punch",
+      "Récupération",
+      "Résistance aux efforts répétés"
+    ],
+    "career_progression": [
+      "Réputation",
+      "Confiance du DS",
+      "Leadership",
+      "Lecture de course",
+      "Popularité",
+      "Attractivité sur le marché"
+    ],
+    "progression_policy": {
+      "status": "proposed",
+      "rule": "Distinguer FTP mesurée ou déclarée et attributs ludiques. Une récompense de carrière ne modifie jamais automatiquement la FTP réelle utilisée pour prescrire les cibles."
+    },
+    "contracts": {
+      "fields": [
+        "Équipe",
+        "Saison de début",
+        "Durée",
+        "Rôle promis",
+        "Objectifs",
+        "Salaire ludique ou prestige"
+      ],
+      "status": "accepted_direction"
+    },
+    "transfers": {
+      "description": "Offres selon profil, résultats, réputation et besoins des équipes ; arbitrage entre leadership, équipe prestigieuse et rôle d'équipier.",
+      "proposed_minimum": "Fenêtre de fin de saison, deux offres contrastées lorsque le contrat expire, acceptation persistante et effectif cohérent."
+    },
+    "season_rollover": {
+      "status": "proposed",
+      "rules": [
+        "Archiver résultats et classements",
+        "Faire évoluer âge et contrats",
+        "Générer le calendrier suivant",
+        "Conserver trophées, historique et identité des rivaux",
+        "Sauvegarder la transition dans une transaction"
+      ]
+    },
+    "retirement": {
+      "description": "Clôturer la carrière et conserver un musée consultable : saisons, équipes, victoires, progression et comparaison aux rivaux.",
+      "proposed_minimum": "Retraite volontaire confirmée dans l'interface, archive en lecture seule et possibilité de créer une nouvelle carrière distincte.",
+      "age_rules": {
+        "status": "unresolved",
+        "value": null
+      }
+    },
+    "rivalries": {
+      "status": "accepted_direction",
+      "delivery": "Identités et historiques persistants d'abord ; narration avancée plus tard."
+    }
   },
   "race_engine": {
     "status": "proposed",
     "principle": "Moteur sans dépendance à la scène 3D, partagé par course jouée, sections accélérées et simulation intégrale.",
-    "route_model": ["Distance en mètres", "Pente par segment", "Type de surface", "Points de sprint", "Points de montagne", "Arrivée"],
-    "rider_state": ["Position", "Vitesse", "Puissance", "Énergie", "Fatigue", "Groupe", "Rôle", "Objectif tactique"],
-    "minimum_physics": ["Puissance et masse", "Pente", "Résistance au roulement", "Traînée", "Aspiration simplifiée", "Limites d'énergie et récupération"],
-    "time_step": {"status": "proposed", "strategy": "Pas de simulation fixe configurable, rendu interpolé et simulation rapide sans rendu.", "tick_seconds": null, "decision_gate": "Mesurer précision et coût avant de fixer la fréquence (RACE-001)."},
+    "route_model": [
+      "Distance en mètres",
+      "Pente par segment",
+      "Type de surface",
+      "Points de sprint",
+      "Points de montagne",
+      "Arrivée"
+    ],
+    "rider_state": [
+      "Position",
+      "Vitesse",
+      "Puissance",
+      "Énergie",
+      "Fatigue",
+      "Groupe",
+      "Rôle",
+      "Objectif tactique"
+    ],
+    "minimum_physics": [
+      "Puissance et masse",
+      "Pente",
+      "Résistance au roulement",
+      "Traînée",
+      "Aspiration simplifiée",
+      "Limites d'énergie et récupération"
+    ],
+    "time_step": {
+      "status": "proposed",
+      "strategy": "Pas de simulation fixe configurable, rendu interpolé et simulation rapide sans rendu.",
+      "tick_seconds": null,
+      "decision_gate": "Mesurer précision et coût avant de fixer la fréquence (RACE-001)."
+    },
     "ai": {
       "approach": "Machines à états ou règles déterministes pondérées, sans appel LLM pendant le jeu.",
-      "states": ["Suivre", "Relayer", "Protéger le leader", "Attaquer", "Chasser", "Récupérer", "Se placer", "Sprinter"],
-      "inputs": ["Profil", "Énergie", "Rôle", "Terrain", "Distance restante", "Écarts", "Objectifs d'équipe"],
-      "constraints": ["Même modèle physique que le joueur", "Actions limitées par l'énergie", "Aléatoire issu d'une graine enregistrée", "Décisions explicables dans un journal de développement"]
+      "states": [
+        "Suivre",
+        "Relayer",
+        "Protéger le leader",
+        "Attaquer",
+        "Chasser",
+        "Récupérer",
+        "Se placer",
+        "Sprinter"
+      ],
+      "inputs": [
+        "Profil",
+        "Énergie",
+        "Rôle",
+        "Terrain",
+        "Distance restante",
+        "Écarts",
+        "Objectifs d'équipe"
+      ],
+      "constraints": [
+        "Même modèle physique que le joueur",
+        "Actions limitées par l'énergie",
+        "Aléatoire issu d'une graine enregistrée",
+        "Décisions explicables dans un journal de développement"
+      ]
     },
-    "classifications": ["Résultat d'étape", "Classement général au temps", "Points et montagne dans les jalons ultérieurs"],
-    "performance": {"slice_riders": 20, "slice_riders_status": "proposed", "full_peloton_target": null, "rule": "Mesurer avant d'augmenter le nombre de coureurs ; aucune promesse de performance sans profilage."},
-    "anti_scope": ["Pas de collisions réalistes de peloton au prototype", "Pas de simulation aérodynamique complexe", "Pas de génération de commentaires par service payant"]
+    "classifications": [
+      "Résultat d'étape",
+      "Classement général au temps",
+      "Points et montagne dans les jalons ultérieurs"
+    ],
+    "performance": {
+      "slice_riders": 20,
+      "slice_riders_status": "proposed",
+      "full_peloton_target": null,
+      "rule": "Mesurer avant d'augmenter le nombre de coureurs ; aucune promesse de performance sans profilage."
+    },
+    "anti_scope": [
+      "Pas de collisions réalistes de peloton au prototype",
+      "Pas de simulation aérodynamique complexe",
+      "Pas de génération de commentaires par service payant"
+    ]
   },
   "hardware": {
-    "protocol": {"status": "confirmed", "value": "Bluetooth FTMS"},
+    "protocol": {
+      "status": "confirmed",
+      "value": "Bluetooth FTMS"
+    },
     "integration_status": "proposed",
-    "capabilities": ["Découvrir et connecter un trainer", "Lire puissance et cadence lorsqu'elles sont exposées", "Négocier la prise de contrôle", "Commander une cible ERG si supportée", "Commander les paramètres de simulation si supportés", "Libérer le contrôle"],
-    "adapter_contract": ["discover", "connect", "read_capabilities", "subscribe_telemetry", "request_control", "set_erg_target", "set_simulation_parameters", "release_control", "disconnect"],
-    "states": ["DISCONNECTED", "SCANNING", "CONNECTING", "CONNECTED", "CONTROL_READY", "RECONNECTING", "ERROR"],
+    "capabilities": [
+      "Découvrir et connecter un trainer",
+      "Lire puissance et cadence lorsqu'elles sont exposées",
+      "Négocier la prise de contrôle",
+      "Commander une cible ERG si supportée",
+      "Commander les paramètres de simulation si supportés",
+      "Libérer le contrôle"
+    ],
+    "adapter_contract": [
+      "discover",
+      "connect",
+      "read_capabilities",
+      "subscribe_telemetry",
+      "request_control",
+      "set_erg_target",
+      "set_simulation_parameters",
+      "release_control",
+      "disconnect"
+    ],
+    "states": [
+      "DISCONNECTED",
+      "SCANNING",
+      "CONNECTING",
+      "CONNECTED",
+      "CONTROL_READY",
+      "RECONNECTING",
+      "ERROR"
+    ],
     "requirements": [
       "Tester les capacités avant d'afficher un mode disponible.",
       "Traiter les réponses et échecs du point de contrôle ; pas de rafale de commandes non acquittées.",
@@ -172,16 +518,64 @@
       "En quittant, libérer le contrôle si la connexion le permet ; ne pas garantir un comportement matériel après une rupture Bluetooth.",
       "Aucune compatibilité universelle annoncée sans essai physique."
     ],
-    "ftms_notes": {"status": "proposed", "items": ["Request Control (opcode 0x00) sur le point de contrôle 0x2AD9 avant toute commande ERG ou pente", "Réponses du point de contrôle par indications : s'y abonner", "Limiter l'écriture des consignes à environ 1 à 2 Hz"]},
-    "transport_choice": {"status": "confirmed", "primary": "GDBLE (GDExtension Rust/btleplug, MIT) : vérifier binaire Windows et compatibilité Godot 4.7.2 en premier.", "fallback": "Pont local isolé (Python bleak ou .NET WinRT) vers le jeu en UDP sur 127.0.0.1, sans toucher au reste du code.", "rule": "Le jeu ne dépend que de l'interface TrainerSource (HW-000)."},
+    "ftms_notes": {
+      "status": "proposed",
+      "items": [
+        "Request Control (opcode 0x00) sur le point de contrôle 0x2AD9 avant toute commande ERG ou pente",
+        "Réponses du point de contrôle par indications : s'y abonner",
+        "Limiter l'écriture des consignes à environ 1 à 2 Hz"
+      ]
+    },
+    "transport_choice": {
+      "status": "confirmed",
+      "primary": "GDBLE (GDExtension Rust/btleplug, MIT) : vérifier binaire Windows et compatibilité Godot 4.7.2 en premier.",
+      "fallback": "Pont local isolé (Python bleak ou .NET WinRT) vers le jeu en UDP sur 127.0.0.1, sans toucher au reste du code.",
+      "rule": "Le jeu ne dépend que de l'interface TrainerSource (HW-000)."
+    },
     "verified_devices": [],
-    "open_questions": ["Modèle et firmware du trainer disponible", "Système Bluetooth et permissions", "Puissance/cadence exposées", "Support réel des commandes ERG et simulation"],
-    "test_strategy": ["FakeTrainer pour flux nominal et erreurs", "Essai physique ERG", "Essai physique simulation", "Déconnexion et reconnexion", "Arrêt et libération du contrôle"]
+    "open_questions": [
+      "Modèle et firmware du trainer disponible",
+      "Système Bluetooth et permissions",
+      "Puissance/cadence exposées",
+      "Support réel des commandes ERG et simulation"
+    ],
+    "test_strategy": [
+      "FakeTrainer pour flux nominal et erreurs",
+      "Essai physique ERG",
+      "Essai physique simulation",
+      "Déconnexion et reconnexion",
+      "Arrêt et libération du contrôle"
+    ],
+    "declared_devices": [
+      {
+        "model": "Wahoo KICKR CORE (édition Zwift One)",
+        "role": "Trainer : puissance, cadence, ERG, simulation",
+        "ftms": "à confirmer par HW-001"
+      },
+      {
+        "model": "Zwift Ride",
+        "role": "Cadre sans vitesses mécaniques ; boutons de vitesse virtuelle (protocole propriétaire)",
+        "ftms": "non applicable"
+      }
+    ],
+    "virtual_shifting": {
+      "status": "confirmed",
+      "reason": "Le Zwift Ride n'a pas de transmission réelle : en mode libre, le jeu calcule la résistance selon un braquet virtuel.",
+      "rules": [
+        "Modèle de braquets virtuels (plateaux, cassette) en données",
+        "Résistance envoyée au trainer en mode simulation, ajustée selon le braquet",
+        "Sans effet en ERG : la puissance cible prime",
+        "Lecture des boutons du Zwift Ride ; clavier en repli"
+      ]
+    }
   },
   "art_direction": {
     "status": "confirmed",
     "decision": "Stylisé soigné, non réaliste (propriétaire, 2026-10-22). Le réalisme type Tour de France console, Rouvy ou MyWhoosh est écarté : coût d'assets et de décors hors de portée, et un réalisme à petit budget paraît daté.",
-    "references": ["Zwift (semi-stylisé propre)", "Démonstration NCT Cycling « J'ai demandé à une IA de recréer Zwift » (low-poly, niveau plancher)"],
+    "references": [
+      "Zwift (semi-stylisé propre)",
+      "Démonstration NCT Cycling « J'ai demandé à une IA de recréer Zwift » (low-poly, niveau plancher)"
+    ],
     "style": "3D stylisée aux formes simples et lisibles, au-dessus du low-poly brut : proportions crédibles du cycliste, matériaux simples mais propres, palette maîtrisée, éclairage soigné.",
     "effort_priorities": [
       "Cycliste aux proportions crédibles et animation de pédalage fluide, vitesse calée sur la cadence réelle",
@@ -191,87 +585,655 @@
       "Décors simples, modulaires et réutilisés"
     ],
     "camera": "Caméra de course arrière ou trois-quarts ; hubs en vues fixes ou déplacements très limités.",
-    "asset_strategy": ["Décors modulaires réutilisés ; 2 ou 3 zones partagées par plusieurs courses", "Un vélo et un cycliste déclinés par textures", "Animations peu nombreuses et partagées", "Un bus puis une salle à trophées", "Signalétique originale et équipes fictives", "Assets achetés ou CC0 en glTF/FBX, licence consignée"],
-    "ui": ["Typographie lisible", "Watts, cadence, cible et intervalle prioritaires", "Profil de parcours compact", "Objets du hub ouvrant des panneaux contextuels"],
+    "asset_strategy": [
+      "Décors modulaires réutilisés ; 2 ou 3 zones partagées par plusieurs courses",
+      "Un vélo et un cycliste déclinés par textures",
+      "Animations peu nombreuses et partagées",
+      "Un bus puis une salle à trophées",
+      "Signalétique originale et équipes fictives",
+      "Assets achetés ou CC0 en glTF/FBX, licence consignée",
+      "Coureur : corps MakeHuman/MPFB (CC0) stylisé, vélo scripté Blender, pédalage procédural (IK) piloté par la cadence"
+    ],
+    "ui": [
+      "Typographie lisible",
+      "Watts, cadence, cible et intervalle prioritaires",
+      "Profil de parcours compact",
+      "Objets du hub ouvrant des panneaux contextuels"
+    ],
     "audio": "Ambiance et sons courts ; consignes textuelles d'abord, audio préenregistré optionnel ensuite.",
     "validation": "Scène témoin (ART-001) juste après RACE-001 : un cycliste animé, une portion de route, home trainer branché si disponible. Validation par le propriétaire avant toute production de décors en volume.",
-    "prohibited_cost_drivers": ["Photoréalisme", "Grand monde ouvert détaillé", "Cinématiques nombreuses", "Assets uniques pour chaque étape"]
+    "prohibited_cost_drivers": [
+      "Photoréalisme",
+      "Grand monde ouvert détaillé",
+      "Cinématiques nombreuses",
+      "Assets uniques pour chaque étape"
+    ]
   },
   "architecture": {
-    "stack": {"status": "confirmed", "engine": "Godot", "language": "GDScript", "persistence": "SQLite"},
-    "versions": {"status": "confirmed", "godot": "4.7.2-stable", "sqlite_integration": "godot-sqlite v4.7 (2shady4u, MIT)", "rule": "Versions verrouillées dans docs/COMPATIBILITY.md ; tout changement passe par une décision datée."},
-    "principles": ["Logique métier indépendante des scènes", "Configuration et contenu séparés du code", "Interfaces pour matériel et stockage", "Une source de vérité pour résultats et progression", "Aucun backend nécessaire au jeu solo initial"],
+    "stack": {
+      "status": "confirmed",
+      "engine": "Godot",
+      "language": "GDScript",
+      "persistence": "SQLite"
+    },
+    "versions": {
+      "status": "confirmed",
+      "godot": "4.7.2-stable",
+      "sqlite_integration": "godot-sqlite v4.7 (2shady4u, MIT)",
+      "rule": "Versions verrouillées dans docs/COMPATIBILITY.md ; tout changement passe par une décision datée."
+    },
+    "principles": [
+      "Logique métier indépendante des scènes",
+      "Configuration et contenu séparés du code",
+      "Interfaces pour matériel et stockage",
+      "Une source de vérité pour résultats et progression",
+      "Aucun backend nécessaire au jeu solo initial"
+    ],
     "modules": [
-      {"name": "core", "responsibility": "Identifiants, horloges, graine, événements et configuration"},
-      {"name": "race", "responsibility": "Physique simplifiée, tactiques, IA et classements"},
-      {"name": "workout", "responsibility": "Modèle de blocs, import, cibles et exécution"},
-      {"name": "session", "responsibility": "Modes, horloges et mapping séance/course"},
-      {"name": "career", "responsibility": "Calendrier, profils, progression, contrats et retraite"},
-      {"name": "trainer", "responsibility": "Interface matériel, fake et adaptateur FTMS"},
-      {"name": "persistence", "responsibility": "SQLite, migrations et dépôts"},
-      {"name": "presentation", "responsibility": "Scènes, hubs, HUD et audio"}
+      {
+        "name": "core",
+        "responsibility": "Identifiants, horloges, graine, événements et configuration"
+      },
+      {
+        "name": "race",
+        "responsibility": "Physique simplifiée, tactiques, IA et classements"
+      },
+      {
+        "name": "workout",
+        "responsibility": "Modèle de blocs, import, cibles et exécution"
+      },
+      {
+        "name": "session",
+        "responsibility": "Modes, horloges et mapping séance/course"
+      },
+      {
+        "name": "career",
+        "responsibility": "Calendrier, profils, progression, contrats et retraite"
+      },
+      {
+        "name": "trainer",
+        "responsibility": "Interface matériel, fake et adaptateur FTMS"
+      },
+      {
+        "name": "persistence",
+        "responsibility": "SQLite, migrations et dépôts"
+      },
+      {
+        "name": "presentation",
+        "responsibility": "Scènes, hubs, HUD et audio"
+      }
     ],
     "dependency_rule": "La présentation appelle les services métier ; les services métier ne connaissent ni les nœuds visuels ni les API Bluetooth concrètes. L'orchestrateur session coordonne workout, race et trainer via interfaces.",
-    "suggested_layout": ["project.godot", "src/core", "src/race", "src/workout", "src/session", "src/career", "src/trainer", "src/persistence", "scenes/hubs", "scenes/race", "ui", "data", "tests", "docs", "assets"],
+    "suggested_layout": [
+      "project.godot",
+      "src/core",
+      "src/race",
+      "src/workout",
+      "src/session",
+      "src/career",
+      "src/trainer",
+      "src/persistence",
+      "scenes/hubs",
+      "scenes/race",
+      "ui",
+      "data",
+      "tests",
+      "docs",
+      "assets"
+    ],
     "save_policy": "SQLite dans le dossier de données utilisateur Godot, jamais dans les ressources du jeu exporté. Transactions atomiques pour résultats et transitions de saison ; copie de secours avant migration.",
     "failure_policy": "Erreur de sauvegarde visible et récupérable ; ne pas afficher une progression comme définitivement enregistrée en cas d'échec.",
-    "data_formats": {"static_content": "JSON versionné et validé", "runtime_save": "SQLite", "workout_import": "Format externe converti vers blocs internes sans exécution de code"},
+    "data_formats": {
+      "static_content": "JSON versionné et validé",
+      "runtime_save": "SQLite",
+      "workout_import": "Format externe converti vers blocs internes sans exécution de code"
+    },
     "data_model_status": "proposed",
     "entities": [
-      {"name": "Career", "fields": ["id", "rider_id", "current_season_id", "game_date", "status", "schema_version"]},
-      {"name": "Rider", "fields": ["id", "name", "profile_id", "age", "attributes", "reference_ftp_w", "mass_kg"]},
-      {"name": "Team", "fields": ["id", "name", "objectives", "prestige"]},
-      {"name": "Contract", "fields": ["id", "career_id", "team_id", "start_season", "end_season", "role", "objectives"]},
-      {"name": "Season", "fields": ["id", "career_id", "year", "seed", "status"]},
-      {"name": "Race", "fields": ["id", "name", "type", "stage_count", "route_ids"]},
-      {"name": "Event", "fields": ["id", "season_id", "date", "race_id", "stage_index", "status"]},
-      {"name": "Route", "fields": ["id", "name", "segments", "distance_m"]},
-      {"name": "Workout", "fields": ["id", "name", "source", "blocks", "duration_s", "format_version"]},
-      {"name": "WorkoutBlock", "fields": ["index", "type", "duration_s", "target_basis", "target_start", "target_end", "cadence_hint"]},
-      {"name": "Session", "fields": ["id", "event_id", "mode", "workout_id", "seed", "status", "workout_elapsed_s", "race_elapsed_s", "reference_ftp_snapshot_w"]},
-      {"name": "Result", "fields": ["id", "event_id", "rider_id", "rank", "race_time_s", "source_mode", "session_id"]},
-      {"name": "Progression", "fields": ["id", "career_id", "event_id", "physical_delta", "career_delta", "reason"]},
-      {"name": "Trophy", "fields": ["id", "career_id", "result_id", "type", "awarded_on", "display_slot"]},
-      {"name": "Archive", "fields": ["id", "career_id", "season_id", "summary", "team_history", "version"]}
+      {
+        "name": "Career",
+        "fields": [
+          "id",
+          "rider_id",
+          "current_season_id",
+          "game_date",
+          "status",
+          "schema_version"
+        ]
+      },
+      {
+        "name": "Rider",
+        "fields": [
+          "id",
+          "name",
+          "profile_id",
+          "age",
+          "attributes",
+          "reference_ftp_w",
+          "mass_kg"
+        ]
+      },
+      {
+        "name": "Team",
+        "fields": [
+          "id",
+          "name",
+          "objectives",
+          "prestige"
+        ]
+      },
+      {
+        "name": "Contract",
+        "fields": [
+          "id",
+          "career_id",
+          "team_id",
+          "start_season",
+          "end_season",
+          "role",
+          "objectives"
+        ]
+      },
+      {
+        "name": "Season",
+        "fields": [
+          "id",
+          "career_id",
+          "year",
+          "seed",
+          "status"
+        ]
+      },
+      {
+        "name": "Race",
+        "fields": [
+          "id",
+          "name",
+          "type",
+          "stage_count",
+          "route_ids"
+        ]
+      },
+      {
+        "name": "Event",
+        "fields": [
+          "id",
+          "season_id",
+          "date",
+          "race_id",
+          "stage_index",
+          "status"
+        ]
+      },
+      {
+        "name": "Route",
+        "fields": [
+          "id",
+          "name",
+          "segments",
+          "distance_m"
+        ]
+      },
+      {
+        "name": "Workout",
+        "fields": [
+          "id",
+          "name",
+          "source",
+          "blocks",
+          "duration_s",
+          "format_version"
+        ]
+      },
+      {
+        "name": "WorkoutBlock",
+        "fields": [
+          "index",
+          "type",
+          "duration_s",
+          "target_basis",
+          "target_start",
+          "target_end",
+          "cadence_hint"
+        ]
+      },
+      {
+        "name": "Session",
+        "fields": [
+          "id",
+          "event_id",
+          "mode",
+          "workout_id",
+          "seed",
+          "status",
+          "workout_elapsed_s",
+          "race_elapsed_s",
+          "reference_ftp_snapshot_w"
+        ]
+      },
+      {
+        "name": "Result",
+        "fields": [
+          "id",
+          "event_id",
+          "rider_id",
+          "rank",
+          "race_time_s",
+          "source_mode",
+          "session_id"
+        ]
+      },
+      {
+        "name": "Progression",
+        "fields": [
+          "id",
+          "career_id",
+          "event_id",
+          "physical_delta",
+          "career_delta",
+          "reason"
+        ]
+      },
+      {
+        "name": "Trophy",
+        "fields": [
+          "id",
+          "career_id",
+          "result_id",
+          "type",
+          "awarded_on",
+          "display_slot"
+        ]
+      },
+      {
+        "name": "Archive",
+        "fields": [
+          "id",
+          "career_id",
+          "season_id",
+          "summary",
+          "team_history",
+          "version"
+        ]
+      }
     ],
-    "integrity": ["Identifiants stables", "Clés étrangères actives", "Un résultat par coureur et événement", "Application idempotente de la progression", "Unités explicites : watts, secondes, mètres, kilogrammes", "Cibles relatives stockées comme fraction de FTP ; snapshot de référence à la séance", "Rejet des durées négatives et cibles non finies", "Import borné en taille et en nombre de blocs"],
+    "integrity": [
+      "Identifiants stables",
+      "Clés étrangères actives",
+      "Un résultat par coureur et événement",
+      "Application idempotente de la progression",
+      "Unités explicites : watts, secondes, mètres, kilogrammes",
+      "Cibles relatives stockées comme fraction de FTP ; snapshot de référence à la séance",
+      "Rejet des durées négatives et cibles non finies",
+      "Import borné en taille et en nombre de blocs"
+    ],
     "privacy": "Données physiques stockées localement ; aucun envoi ni télémétrie externe par défaut."
   },
   "delivery": {
     "status": "proposed",
     "planning_rule": "Jalons fondés sur des preuves jouables ; aucune date ni estimation financière ferme n'est inventée.",
     "milestones": [
-      {"id": "M0", "name": "Fondations et faisabilité", "tickets": ["CORE-001", "HW-001"], "exit": "Projet exécutable, stockage validé et décision FTMS documentée avec limites. HW-001 peut avancer en parallèle de M1."},
-      {"id": "M1", "name": "Course, direction visuelle et séance sans matériel", "tickets": ["RACE-001", "ART-001", "HW-000", "AI-001", "WORKOUT-001", "SESSION-001", "IMPORT-001"], "exit": "Une étape se simule, la scène témoin est validée, une course se joue librement avec FakeTrainer et accueille une séance complète avec transitions."},
-      {"id": "M2", "name": "Verticale cycliste", "tickets": ["HW-002", "CAREER-001", "HUB-001"], "exit": "Du bus au débrief et au trophée, sauvegarde incluse, avec trainer validé."},
-      {"id": "M3", "name": "Saison annuelle", "tickets": ["SEASON-001", "CAREER-002", "CAREER-003"], "exit": "Saison complète mixte, transferts, deuxième saison et retraite consultable."},
-      {"id": "M4", "name": "Stabilisation et livraison", "tickets": ["QA-001"], "exit": "Export installable, parcours de carrière vérifié et compatibilité matérielle documentée."}
+      {
+        "id": "M0",
+        "name": "Fondations et faisabilité",
+        "tickets": [
+          "CORE-001",
+          "HW-001"
+        ],
+        "exit": "Projet exécutable, stockage validé et décision FTMS documentée avec limites. HW-001 peut avancer en parallèle de M1."
+      },
+      {
+        "id": "M1",
+        "name": "Course, direction visuelle et séance sans matériel",
+        "tickets": [
+          "RACE-001",
+          "ART-001",
+          "HW-000",
+          "AI-001",
+          "WORKOUT-001",
+          "SESSION-001",
+          "IMPORT-001"
+        ],
+        "exit": "Une étape se simule, la scène témoin est validée, une course se joue librement avec FakeTrainer et accueille une séance complète avec transitions."
+      },
+      {
+        "id": "M2",
+        "name": "Verticale cycliste",
+        "tickets": [
+          "HW-002",
+          "HW-003",
+          "CAREER-001",
+          "HUB-001"
+        ],
+        "exit": "Du bus au débrief et au trophée, sauvegarde incluse, avec trainer validé."
+      },
+      {
+        "id": "M3",
+        "name": "Saison annuelle",
+        "tickets": [
+          "SEASON-001",
+          "CAREER-002",
+          "CAREER-003"
+        ],
+        "exit": "Saison complète mixte, transferts, deuxième saison et retraite consultable."
+      },
+      {
+        "id": "M4",
+        "name": "Stabilisation et livraison",
+        "tickets": [
+          "QA-001"
+        ],
+        "exit": "Export installable, parcours de carrière vérifié et compatibilité matérielle documentée."
+      }
     ],
-    "priority_meaning": {"P0": "Fondation ou bloqueur de la verticale", "P1": "Nécessaire à la première version complète", "P2": "Extension après validation de la boucle"},
+    "priority_meaning": {
+      "P0": "Fondation ou bloqueur de la verticale",
+      "P1": "Nécessaire à la première version complète",
+      "P2": "Extension après validation de la boucle"
+    },
     "backlog": [
-      {"id": "CORE-001", "priority": "P0", "milestone": "M0", "title": "Initialiser le socle Godot/GDScript/SQLite", "depends_on": [], "delivery_status": "done", "acceptance": ["Projet Godot s'ouvre et démarre sans erreur", "Version moteur et intégration SQLite verrouillées et licences consignées", "Un test écrit puis relit un identifiant de carrière dans une base temporaire", "Migration initiale rejouée sans corruption", "Point d'entrée et commandes de vérification documentés"]},
-      {"id": "HW-001", "priority": "P0", "milestone": "M0", "title": "Lever le risque FTMS avec GDBLE", "depends_on": [], "acceptance": ["Binaire Windows de GDBLE disponible ou compilé, chargé par Godot 4.7.2", "Capacités du trainer disponible lues (puissance, cadence, ERG, simulation)", "Décision d'intégration (GDBLE ou pont local) et matrice des modes supportés écrites", "Si aucun trainer n'est disponible, statut matériel non validé explicite et clôture physique différée"]},
-      {"id": "RACE-001", "priority": "P0", "milestone": "M1", "title": "Simuler une étape fictive", "depends_on": ["CORE-001"], "acceptance": ["Un parcours segmenté produit un classement de 20 coureurs", "Même configuration et graine donnent le même résultat sur la version verrouillée", "Résultat calculable sans scène 3D", "Puissance ou pente modifiée a un effet cohérent sur le déplacement"]},
-      {"id": "ART-001", "priority": "P0", "milestone": "M1", "title": "Scène témoin de la direction stylisée soignée", "depends_on": ["RACE-001"], "acceptance": ["Une portion de route stylisée jouable, pilotée par le moteur de course", "Un cycliste riggé dont le pédalage suit la cadence", "Lumière, brouillard et caméra conformes aux priorités de la DA", "Coureurs et équipes identifiables en course", "HUD lisible à distance sur configuration de référence", "Origine et licence des assets consignées", "Validation visuelle du propriétaire avant production de décors en volume"]},
-      {"id": "HW-000", "priority": "P0", "milestone": "M1", "title": "Interface TrainerSource et FakeTrainer", "depends_on": ["CORE-001"], "acceptance": ["Interface conforme à hardware.adapter_contract et aux états", "FakeTrainer expose puissance, cadence, capacités et erreurs scriptables", "Données périmées signalées comme indisponibles", "Aucune dépendance à un transport BLE concret"]},
-      {"id": "AI-001", "priority": "P0", "milestone": "M1", "title": "Ajouter rôles et tactiques IA", "depends_on": ["RACE-001"], "acceptance": ["Une IA suit, attaque, récupère et sprinte selon contexte", "Les actions consomment les ressources du même moteur", "Un scénario montre un équipier au service du leader", "Les décisions peuvent être diagnostiquées sans service externe"]},
-      {"id": "WORKOUT-001", "priority": "P0", "milestone": "M1", "title": "Exécuter les séances internes", "depends_on": ["CORE-001"], "acceptance": ["Une séance contient échauffement, efforts, récupérations et retour au calme", "Durées et cibles relatives sont correctement développées", "Pause et reprise n'ajoutent aucun temps d'effort", "Les trois profils de la verticale disposent d'une proposition pertinente"]},
-      {"id": "SESSION-001", "priority": "P0", "milestone": "M1", "title": "Orchestrer libre, simulation et ERG accéléré", "depends_on": ["RACE-001", "AI-001", "WORKOUT-001", "HW-000"], "acceptance": ["Les trois modes produisent un résultat exploitable par la carrière", "Le mode libre n'envoie pas de cible ERG", "Une séance de référence conserve la durée de chaque bloc", "Les sections de liaison avancent la course sans avancer la séance", "L'abandon et la pause ont des états explicites"]},
-      {"id": "IMPORT-001", "priority": "P0", "milestone": "M1", "title": "Importer un sous-ensemble ZWO", "depends_on": ["WORKOUT-001"], "acceptance": ["Blocs constants, rampes et répétitions supportés sont documentés", "Prévisualisation des blocs et durée avant lancement", "Fichier malformé ou bloc inconnu rejeté avec message compréhensible", "Aucune conversion silencieuse ne supprime une récupération", "Taille et expansion des répétitions bornées"]},
-      {"id": "HW-002", "priority": "P0", "milestone": "M2", "title": "Brancher le trainer en séance", "depends_on": ["HW-001", "HW-000", "SESSION-001"], "acceptance": ["Puissance et cadence réelles visibles lorsque disponibles", "ERG et simulation testés sur au moins un trainer identifié", "Perte de connexion suspend la séance et signale les données périmées", "Reconnexion et sortie libèrent ou reprennent le contrôle proprement", "Les modes indisponibles sont expliqués avant lancement"]},
-      {"id": "CAREER-001", "priority": "P0", "milestone": "M2", "title": "Persister la mini-carrière et le premier trophée", "depends_on": ["CORE-001", "SESSION-001"], "acceptance": ["Création de carrière avec un des trois profils", "Résultat applique progression et confiance une seule fois", "Un trophée gagné possède une fiche persistante consultable", "Après redémarrage, résultats, profil et trophée sont conservés", "Échec d'écriture ne duplique pas les récompenses à la reprise"]},
-      {"id": "HUB-001", "priority": "P0", "milestone": "M2", "title": "Construire le bus cliquable", "depends_on": ["SESSION-001", "CAREER-001", "ART-001"], "acceptance": ["Tableau, vélo et tablette ouvrent les fonctions correspondantes", "Une séance se prépare et se lance depuis le bus", "Le débrief revient dans le bus", "Le trophée gagné ouvre sa fiche depuis le hub", "Focus clavier et survol rendent les interactions repérables"]},
-      {"id": "SEASON-001", "priority": "P1", "milestone": "M3", "title": "Dérouler une année complète", "depends_on": ["CAREER-001", "AI-001"], "acceptance": ["Calendrier couvre une année avec courses, entraînements et repos", "Le joueur choisit librement les étapes jouées ou simulées", "Une course par étapes agrège le classement général", "Fin de saison crée une archive et une nouvelle saison cohérente", "Un parcours automatisé peut boucler toute une saison"]},
-      {"id": "CAREER-002", "priority": "P1", "milestone": "M3", "title": "Ajouter contrats, transferts et rôles", "depends_on": ["SEASON-001"], "acceptance": ["Offres contrastées selon profil et réputation", "Une acceptation change équipe et rôle à la bonne date", "Un contrat actif reste cohérent après sauvegarde et nouvelle saison", "Le rôle influence une mission ou une tactique observable"]},
-      {"id": "CAREER-003", "priority": "P1", "milestone": "M3", "title": "Compléter le musée et la retraite", "depends_on": ["CAREER-002"], "acceptance": ["Palmarès individuel et d'équipe consultables par saison", "Retraite préserve contrats, résultats et trophées", "Une nouvelle carrière ne remplace pas l'archive précédente", "Les profils prévus sont disponibles avec différences documentées"]},
-      {"id": "QA-001", "priority": "P1", "milestone": "M4", "title": "Stabiliser l'export et la carrière complète", "depends_on": ["HW-002", "ART-001", "CAREER-003", "IMPORT-001"], "acceptance": ["Export Windows lancé hors éditeur", "Parcours bus, libre, ERG, simulation, transfert, nouvelle saison et retraite vérifié", "Sauvegarde et migration testées sur copie de données", "Mesures de performance sur configuration de référence publiées", "Matériels testés et limitations fournis avec le livrable"]},
-      {"id": "EXT-001", "priority": "P2", "milestone": null, "title": "Étendre narration, contenu et modes asynchrones", "depends_on": ["QA-001"], "acceptance": ["Une proposition chiffrée et découpée est validée avant développement", "Les performances et sauvegardes existantes restent compatibles"], "delivery_status": "deferred"}
+      {
+        "id": "CORE-001",
+        "priority": "P0",
+        "milestone": "M0",
+        "title": "Initialiser le socle Godot/GDScript/SQLite",
+        "depends_on": [],
+        "delivery_status": "done",
+        "acceptance": [
+          "Projet Godot s'ouvre et démarre sans erreur",
+          "Version moteur et intégration SQLite verrouillées et licences consignées",
+          "Un test écrit puis relit un identifiant de carrière dans une base temporaire",
+          "Migration initiale rejouée sans corruption",
+          "Point d'entrée et commandes de vérification documentés"
+        ]
+      },
+      {
+        "id": "HW-001",
+        "priority": "P0",
+        "milestone": "M0",
+        "title": "Lever le risque FTMS avec GDBLE",
+        "depends_on": [],
+        "acceptance": [
+          "Binaire Windows de GDBLE disponible ou compilé, chargé par Godot 4.7.2",
+          "Capacités du trainer disponible lues (puissance, cadence, ERG, simulation)",
+          "Décision d'intégration (GDBLE ou pont local) et matrice des modes supportés écrites",
+          "Si aucun trainer n'est disponible, statut matériel non validé explicite et clôture physique différée"
+        ]
+      },
+      {
+        "id": "RACE-001",
+        "priority": "P0",
+        "milestone": "M1",
+        "title": "Simuler une étape fictive",
+        "depends_on": [
+          "CORE-001"
+        ],
+        "acceptance": [
+          "Un parcours segmenté produit un classement de 20 coureurs",
+          "Même configuration et graine donnent le même résultat sur la version verrouillée",
+          "Résultat calculable sans scène 3D",
+          "Puissance ou pente modifiée a un effet cohérent sur le déplacement"
+        ],
+        "delivery_status": "done"
+      },
+      {
+        "id": "ART-001",
+        "priority": "P0",
+        "milestone": "M1",
+        "title": "Scène témoin de la direction stylisée soignée",
+        "depends_on": [
+          "RACE-001"
+        ],
+        "acceptance": [
+          "Une portion de route stylisée jouable, pilotée par le moteur de course",
+          "Un cycliste riggé dont le pédalage suit la cadence",
+          "Lumière, brouillard et caméra conformes aux priorités de la DA",
+          "Coureurs et équipes identifiables en course",
+          "HUD lisible à distance sur configuration de référence",
+          "Origine et licence des assets consignées",
+          "Validation visuelle du propriétaire avant production de décors en volume"
+        ]
+      },
+      {
+        "id": "HW-000",
+        "priority": "P0",
+        "milestone": "M1",
+        "title": "Interface TrainerSource et FakeTrainer",
+        "depends_on": [
+          "CORE-001"
+        ],
+        "acceptance": [
+          "Interface conforme à hardware.adapter_contract et aux états",
+          "FakeTrainer expose puissance, cadence, capacités et erreurs scriptables",
+          "Données périmées signalées comme indisponibles",
+          "Aucune dépendance à un transport BLE concret"
+        ]
+      },
+      {
+        "id": "AI-001",
+        "priority": "P0",
+        "milestone": "M1",
+        "title": "Ajouter rôles et tactiques IA",
+        "depends_on": [
+          "RACE-001"
+        ],
+        "acceptance": [
+          "Une IA suit, attaque, récupère et sprinte selon contexte",
+          "Les actions consomment les ressources du même moteur",
+          "Un scénario montre un équipier au service du leader",
+          "Les décisions peuvent être diagnostiquées sans service externe"
+        ]
+      },
+      {
+        "id": "WORKOUT-001",
+        "priority": "P0",
+        "milestone": "M1",
+        "title": "Exécuter les séances internes",
+        "depends_on": [
+          "CORE-001"
+        ],
+        "acceptance": [
+          "Une séance contient échauffement, efforts, récupérations et retour au calme",
+          "Durées et cibles relatives sont correctement développées",
+          "Pause et reprise n'ajoutent aucun temps d'effort",
+          "Les trois profils de la verticale disposent d'une proposition pertinente"
+        ]
+      },
+      {
+        "id": "SESSION-001",
+        "priority": "P0",
+        "milestone": "M1",
+        "title": "Orchestrer libre, simulation et ERG accéléré",
+        "depends_on": [
+          "RACE-001",
+          "AI-001",
+          "WORKOUT-001",
+          "HW-000"
+        ],
+        "acceptance": [
+          "Les trois modes produisent un résultat exploitable par la carrière",
+          "Le mode libre n'envoie pas de cible ERG",
+          "Une séance de référence conserve la durée de chaque bloc",
+          "Les sections de liaison avancent la course sans avancer la séance",
+          "L'abandon et la pause ont des états explicites"
+        ]
+      },
+      {
+        "id": "IMPORT-001",
+        "priority": "P0",
+        "milestone": "M1",
+        "title": "Importer un sous-ensemble ZWO",
+        "depends_on": [
+          "WORKOUT-001"
+        ],
+        "acceptance": [
+          "Blocs constants, rampes et répétitions supportés sont documentés",
+          "Prévisualisation des blocs et durée avant lancement",
+          "Fichier malformé ou bloc inconnu rejeté avec message compréhensible",
+          "Aucune conversion silencieuse ne supprime une récupération",
+          "Taille et expansion des répétitions bornées"
+        ]
+      },
+      {
+        "id": "HW-002",
+        "priority": "P0",
+        "milestone": "M2",
+        "title": "Brancher le trainer en séance",
+        "depends_on": [
+          "HW-001",
+          "HW-000",
+          "SESSION-001"
+        ],
+        "acceptance": [
+          "Puissance et cadence réelles visibles lorsque disponibles",
+          "ERG et simulation testés sur au moins un trainer identifié",
+          "Perte de connexion suspend la séance et signale les données périmées",
+          "Reconnexion et sortie libèrent ou reprennent le contrôle proprement",
+          "Les modes indisponibles sont expliqués avant lancement"
+        ]
+      },
+      {
+        "id": "HW-003",
+        "priority": "P0",
+        "milestone": "M2",
+        "title": "Vitesses virtuelles et boutons Zwift Ride",
+        "depends_on": [
+          "HW-002"
+        ],
+        "acceptance": [
+          "Modèle de braquets virtuels en données (plateaux, cassette) et changement de rapport visible au HUD",
+          "En mode libre, la résistance envoyée suit pente et braquet sans saut brutal",
+          "En ERG, le braquet n'altère pas la cible de puissance",
+          "Boutons de vitesse du Zwift Ride lus, ou repli clavier documenté si le protocole n'est pas exploitable",
+          "Licence de toute source de protocole tierce vérifiée et consignée"
+        ]
+      },
+      {
+        "id": "CAREER-001",
+        "priority": "P0",
+        "milestone": "M2",
+        "title": "Persister la mini-carrière et le premier trophée",
+        "depends_on": [
+          "CORE-001",
+          "SESSION-001"
+        ],
+        "acceptance": [
+          "Création de carrière avec un des trois profils",
+          "Résultat applique progression et confiance une seule fois",
+          "Un trophée gagné possède une fiche persistante consultable",
+          "Après redémarrage, résultats, profil et trophée sont conservés",
+          "Échec d'écriture ne duplique pas les récompenses à la reprise"
+        ]
+      },
+      {
+        "id": "HUB-001",
+        "priority": "P0",
+        "milestone": "M2",
+        "title": "Construire le bus cliquable",
+        "depends_on": [
+          "SESSION-001",
+          "CAREER-001",
+          "ART-001"
+        ],
+        "acceptance": [
+          "Tableau, vélo et tablette ouvrent les fonctions correspondantes",
+          "Une séance se prépare et se lance depuis le bus",
+          "Le débrief revient dans le bus",
+          "Le trophée gagné ouvre sa fiche depuis le hub",
+          "Focus clavier et survol rendent les interactions repérables"
+        ]
+      },
+      {
+        "id": "SEASON-001",
+        "priority": "P1",
+        "milestone": "M3",
+        "title": "Dérouler une année complète",
+        "depends_on": [
+          "CAREER-001",
+          "AI-001"
+        ],
+        "acceptance": [
+          "Calendrier couvre une année avec courses, entraînements et repos",
+          "Le joueur choisit librement les étapes jouées ou simulées",
+          "Une course par étapes agrège le classement général",
+          "Fin de saison crée une archive et une nouvelle saison cohérente",
+          "Un parcours automatisé peut boucler toute une saison"
+        ]
+      },
+      {
+        "id": "CAREER-002",
+        "priority": "P1",
+        "milestone": "M3",
+        "title": "Ajouter contrats, transferts et rôles",
+        "depends_on": [
+          "SEASON-001"
+        ],
+        "acceptance": [
+          "Offres contrastées selon profil et réputation",
+          "Une acceptation change équipe et rôle à la bonne date",
+          "Un contrat actif reste cohérent après sauvegarde et nouvelle saison",
+          "Le rôle influence une mission ou une tactique observable"
+        ]
+      },
+      {
+        "id": "CAREER-003",
+        "priority": "P1",
+        "milestone": "M3",
+        "title": "Compléter le musée et la retraite",
+        "depends_on": [
+          "CAREER-002"
+        ],
+        "acceptance": [
+          "Palmarès individuel et d'équipe consultables par saison",
+          "Retraite préserve contrats, résultats et trophées",
+          "Une nouvelle carrière ne remplace pas l'archive précédente",
+          "Les profils prévus sont disponibles avec différences documentées"
+        ]
+      },
+      {
+        "id": "QA-001",
+        "priority": "P1",
+        "milestone": "M4",
+        "title": "Stabiliser l'export et la carrière complète",
+        "depends_on": [
+          "HW-002",
+          "ART-001",
+          "CAREER-003",
+          "IMPORT-001",
+          "HW-003"
+        ],
+        "acceptance": [
+          "Export Windows lancé hors éditeur",
+          "Parcours bus, libre, ERG, simulation, transfert, nouvelle saison et retraite vérifié",
+          "Sauvegarde et migration testées sur copie de données",
+          "Mesures de performance sur configuration de référence publiées",
+          "Matériels testés et limitations fournis avec le livrable"
+        ]
+      },
+      {
+        "id": "EXT-001",
+        "priority": "P2",
+        "milestone": null,
+        "title": "Étendre narration, contenu et modes asynchrones",
+        "depends_on": [
+          "QA-001"
+        ],
+        "acceptance": [
+          "Une proposition chiffrée et découpée est validée avant développement",
+          "Les performances et sauvegardes existantes restent compatibles"
+        ],
+        "delivery_status": "deferred"
+      }
     ]
   },
   "agent_rules": {
     "status": "proposed",
     "objective": "Produire des incréments petits et testables avec un contexte court et stable.",
-    "start_here": ["Lire AGENTS.md puis docs/PROJECT_STATE.md", "Lire le ticket actif dans ce fichier, ses dépendances et les fichiers directement concernés", "Ne relire cette spécification entière qu'en cas de doute sur une règle transverse"],
+    "start_here": [
+      "Lire AGENTS.md puis docs/PROJECT_STATE.md",
+      "Lire le ticket actif dans ce fichier, ses dépendances et les fichiers directement concernés",
+      "Ne relire cette spécification entière qu'en cas de doute sur une règle transverse"
+    ],
     "execution": [
       "Un ticket actif à la fois ; ne pas développer le backlog entier dans une même réponse.",
       "Vérifier les dépendances avant modification.",
@@ -287,12 +1249,33 @@
       "Demander une clarification seulement si une inconnue bloque une décision coûteuse ou irréversible ; sinon choisir une hypothèse réversible et la consigner."
     ],
     "context_files": [
-      {"path": "docs/PROJECT_STATE.md", "content": "Ticket actif, acquis vérifiés, blocages et prochaine action ; résumé court."},
-      {"path": "docs/DECISIONS.md", "content": "Décisions datées, raison et conséquences."},
-      {"path": "docs/COMPATIBILITY.md", "content": "Versions verrouillées, plugins, matériel testé et licences."}
+      {
+        "path": "docs/PROJECT_STATE.md",
+        "content": "Ticket actif, acquis vérifiés, blocages et prochaine action ; résumé court."
+      },
+      {
+        "path": "docs/DECISIONS.md",
+        "content": "Décisions datées, raison et conséquences."
+      },
+      {
+        "path": "docs/COMPATIBILITY.md",
+        "content": "Versions verrouillées, plugins, matériel testé et licences."
+      }
     ],
-    "completion_report": ["Ticket livré", "Comportement obtenu", "Fichiers principaux modifiés", "Vérifications réellement exécutées et résultat", "Limites restantes", "Prochain ticket recommandé"],
-    "token_policy": {"hard_limit_tokens_per_ticket": null, "soft_target_tokens_per_ticket": null, "rule": "Aucun montant de tokens n'est confirmé. Réduire lectures répétées et sorties verbeuses ; découper un ticket devenu trop large en sous-tickets cohérents.", "runtime_llm_calls": 0}
+    "completion_report": [
+      "Ticket livré",
+      "Comportement obtenu",
+      "Fichiers principaux modifiés",
+      "Vérifications réellement exécutées et résultat",
+      "Limites restantes",
+      "Prochain ticket recommandé"
+    ],
+    "token_policy": {
+      "hard_limit_tokens_per_ticket": null,
+      "soft_target_tokens_per_ticket": null,
+      "rule": "Aucun montant de tokens n'est confirmé. Réduire lectures répétées et sorties verbeuses ; découper un ticket devenu trop large en sous-tickets cohérents.",
+      "runtime_llm_calls": 0
+    }
   },
   "budget": {
     "status": "confirmed",
@@ -303,23 +1286,102 @@
     "asset_cap": null,
     "token_cap": null,
     "numeric_values_status": "unresolved",
-    "baseline_proposal": ["Jeu solo local", "Pas d'infrastructure serveur récurrente", "Pas de licence sportive officielle", "Pas d'IA payante à l'exécution", "Contenu modulaire et réutilisable", "Plugins gratuits compatibles privilégiés après vérification"],
+    "baseline_proposal": [
+      "Jeu solo local",
+      "Pas d'infrastructure serveur récurrente",
+      "Pas de licence sportive officielle",
+      "Pas d'IA payante à l'exécution",
+      "Contenu modulaire et réutilisable",
+      "Plugins gratuits compatibles privilégiés après vérification"
+    ],
     "spending_rule": "Aucun achat n'est autorisé par ce fichier. Présenter le coût réel avant tout engagement financier (ex. modèle de cycliste riggé pour ART-001).",
     "tracking": "Par ticket : effort observé, éventuelle consommation connue, coût d'assets ou dépendances ; ne pas inventer des mesures indisponibles.",
-    "scope_cut_order": ["Décors additionnels", "Animations et voix", "Narration avancée", "Variété de courses", "Transferts avancés"],
-    "protected_features": ["Saison simulable ou jouable", "Intégrité de la séance ERG", "Persistance", "Bus et palmarès visibles", "Connexion du trainer sur matériel validé"]
+    "scope_cut_order": [
+      "Décors additionnels",
+      "Animations et voix",
+      "Narration avancée",
+      "Variété de courses",
+      "Transferts avancés"
+    ],
+    "protected_features": [
+      "Saison simulable ou jouable",
+      "Intégrité de la séance ERG",
+      "Persistance",
+      "Bus et palmarès visibles",
+      "Connexion du trainer sur matériel validé"
+    ]
   },
   "risks": [
-    {"id": "R01", "severity": "high", "risk": "FTMS et accès Bluetooth variables selon plateforme et matériel ; GDBLE jeune et non garanti sous 4.7.2", "mitigation": "Spike tôt, interface isolée (HW-000), FakeTrainer, pont local en repli et matrice réelle de compatibilité", "owner_ticket": "HW-001"},
-    {"id": "R02", "severity": "high", "risk": "Accélération narrative qui altère la séance", "mitigation": "Horloges séparées et tests de conservation des blocs, pauses et transitions", "owner_ticket": "SESSION-001"},
-    {"id": "R03", "severity": "high", "risk": "Périmètre de carrière trop vaste", "mitigation": "Verticale courte puis saison procédurale en données et jalons fermés", "owner_ticket": "SEASON-001"},
-    {"id": "R04", "severity": "high", "risk": "Différence d'équilibrage entre réel, ERG et simulation", "mitigation": "Séparer réussite de séance et résultat ; scénarios comparables avant réglage fin", "owner_ticket": "SESSION-001"},
-    {"id": "R05", "severity": "high", "risk": "Perte de carrière ou récompenses doublées", "mitigation": "Transactions, idempotence, sauvegarde avant migration et tests de reprise", "owner_ticket": "CAREER-001"},
-    {"id": "R06", "severity": "medium", "risk": "Coût CPU du peloton et du rendu", "mitigation": "Simulation indépendante, verticale à 20 coureurs et profilage avant extension", "owner_ticket": "RACE-001"},
-    {"id": "R07", "severity": "medium", "risk": "Coût et incohérence des assets ; rendu jugé pas assez engageant face à Zwift", "mitigation": "Scène témoin précoce, DA stylisée soignée, réutilisation et registre de licences", "owner_ticket": "ART-001"},
-    {"id": "R08", "severity": "medium", "risk": "Formats d'import ambigus ou fichiers invalides", "mitigation": "Sous-ensemble explicite, validation bornée et refus clair de blocs inconnus", "owner_ticket": "IMPORT-001"},
-    {"id": "R09", "severity": "medium", "risk": "Détails historiques indisponibles pris pour des décisions", "mitigation": "Provenance, statuts de certitude et questions ouvertes conservés", "owner_ticket": "CORE-001"},
-    {"id": "R10", "severity": "medium", "risk": "Tokens consommés par relecture et dérive de contexte", "mitigation": "Un ticket, recherches ciblées et état de projet court", "owner_ticket": "CORE-001"}
+    {
+      "id": "R01",
+      "severity": "high",
+      "risk": "FTMS et accès Bluetooth variables selon plateforme et matériel ; GDBLE jeune et non garanti sous 4.7.2",
+      "mitigation": "Spike tôt, interface isolée (HW-000), FakeTrainer, pont local en repli et matrice réelle de compatibilité",
+      "owner_ticket": "HW-001"
+    },
+    {
+      "id": "R02",
+      "severity": "high",
+      "risk": "Accélération narrative qui altère la séance",
+      "mitigation": "Horloges séparées et tests de conservation des blocs, pauses et transitions",
+      "owner_ticket": "SESSION-001"
+    },
+    {
+      "id": "R03",
+      "severity": "high",
+      "risk": "Périmètre de carrière trop vaste",
+      "mitigation": "Verticale courte puis saison procédurale en données et jalons fermés",
+      "owner_ticket": "SEASON-001"
+    },
+    {
+      "id": "R04",
+      "severity": "high",
+      "risk": "Différence d'équilibrage entre réel, ERG et simulation",
+      "mitigation": "Séparer réussite de séance et résultat ; scénarios comparables avant réglage fin",
+      "owner_ticket": "SESSION-001"
+    },
+    {
+      "id": "R05",
+      "severity": "high",
+      "risk": "Perte de carrière ou récompenses doublées",
+      "mitigation": "Transactions, idempotence, sauvegarde avant migration et tests de reprise",
+      "owner_ticket": "CAREER-001"
+    },
+    {
+      "id": "R06",
+      "severity": "medium",
+      "risk": "Coût CPU du peloton et du rendu",
+      "mitigation": "Simulation indépendante, verticale à 20 coureurs et profilage avant extension",
+      "owner_ticket": "RACE-001"
+    },
+    {
+      "id": "R07",
+      "severity": "medium",
+      "risk": "Coût et incohérence des assets ; rendu jugé pas assez engageant face à Zwift",
+      "mitigation": "Scène témoin précoce, DA stylisée soignée, réutilisation et registre de licences",
+      "owner_ticket": "ART-001"
+    },
+    {
+      "id": "R08",
+      "severity": "medium",
+      "risk": "Formats d'import ambigus ou fichiers invalides",
+      "mitigation": "Sous-ensemble explicite, validation bornée et refus clair de blocs inconnus",
+      "owner_ticket": "IMPORT-001"
+    },
+    {
+      "id": "R09",
+      "severity": "medium",
+      "risk": "Détails historiques indisponibles pris pour des décisions",
+      "mitigation": "Provenance, statuts de certitude et questions ouvertes conservés",
+      "owner_ticket": "CORE-001"
+    },
+    {
+      "id": "R10",
+      "severity": "medium",
+      "risk": "Tokens consommés par relecture et dérive de contexte",
+      "mitigation": "Un ticket, recherches ciblées et état de projet court",
+      "owner_ticket": "CORE-001"
+    }
   ],
   "definition_of_done": {
     "per_ticket": [
@@ -331,24 +1393,86 @@
       "Les versions et licences des dépendances ajoutées sont consignées.",
       "État du projet mis à jour brièvement ; aucune fonctionnalité hors périmètre ajoutée."
     ],
-    "vertical_slice": ["Bus vers séance puis débrief jouable", "Une étape et trois profils", "Libre, ERG, import et simulation disponibles", "Une vraie connexion FTMS validée", "Trophée et carrière restaurés après redémarrage"],
-    "release": ["Une saison annuelle complète peut être terminée en modes mixtes", "Deuxième saison, transfert et retraite fonctionnent", "Musée conserve les archives", "Import refuse proprement les données non supportées", "Pause et perte de connexion n'altèrent pas la séance", "Export Windows vérifié hors éditeur", "Limites matérielles et de contenu documentées", "Aucun défaut bloquant connu sur le parcours principal"]
+    "vertical_slice": [
+      "Bus vers séance puis débrief jouable",
+      "Une étape et trois profils",
+      "Libre, ERG, import et simulation disponibles",
+      "Une vraie connexion FTMS validée",
+      "Trophée et carrière restaurés après redémarrage"
+    ],
+    "release": [
+      "Une saison annuelle complète peut être terminée en modes mixtes",
+      "Deuxième saison, transfert et retraite fonctionnent",
+      "Musée conserve les archives",
+      "Import refuse proprement les données non supportées",
+      "Pause et perte de connexion n'altèrent pas la séance",
+      "Export Windows vérifié hors éditeur",
+      "Limites matérielles et de contenu documentées",
+      "Aucun défaut bloquant connu sur le parcours principal"
+    ]
   },
   "current_ticket": {
-    "id": "RACE-001",
+    "id": "HW-001",
     "status": "in_progress",
-    "goal": "Moteur de course headless : parcours segmenté, physique minimale, aspiration simplifiée, énergie anaérobie, classement de 20 coureurs, déterminisme par graine.",
-    "out_of_scope": ["Tactiques IA (AI-001)", "Rendu 3D (ART-001)", "Classements points et montagne", "Matériel"],
+    "goal": "Lever le risque FTMS : GDBLE chargé sous Godot 4.7.2, décodage FTMS testé, scène de sonde lancée sur le KICKR CORE réel.",
+    "out_of_scope": [
+      "Écriture de consignes ERG/pente (HW-002)",
+      "Vitesses virtuelles (HW-003)"
+    ],
     "next_ticket": "ART-001"
   },
   "open_decisions": [
-    {"id": "D01", "question": "Quels plafonds en euros et en tokens ?", "blocking_for": "Tout achat ou engagement financier", "default": "Aucun achat ni service payant"},
-    {"id": "D02", "question": "Quelle version Godot et quel plugin SQLite ?", "status": "resolved", "resolution": "Godot 4.7.2-stable + godot-sqlite v4.7 (2026-10-22)"},
-    {"id": "D03", "question": "Quel trainer et quel firmware sont disponibles ?", "blocking_for": "Validation matérielle HW-001/HW-002", "default": "Développement FakeTrainer possible ; matériel non déclaré compatible"},
-    {"id": "D04", "question": "La DA stylisée proposée correspond-elle à la direction voulue ?", "status": "resolved", "resolution": "Oui : stylisé soigné, réalisme écarté (2026-10-22). Validation finale sur la scène témoin ART-001."},
-    {"id": "D05", "question": "Quelle machine de référence et quelle cible de performance ?", "blocking_for": "Clôture performance QA-001", "default": "Mesures observées, sans promesse de FPS"},
-    {"id": "D06", "question": "Quelles règles d'âge, de progression et d'équilibrage entre modes ?", "blocking_for": "Équilibrage final", "default": "Paramètres configurables et scénarios de validation"},
-    {"id": "D07", "question": "Quel format d'import prioritaire si différent de ZWO ?", "blocking_for": "Extension au-delà du sous-ensemble initial proposé", "default": "Sous-ensemble ZWO documenté"},
-    {"id": "D08", "question": "Budget pour le modèle de cycliste riggé de la scène témoin ?", "blocking_for": "ART-001 (au-delà d'un cycliste provisoire)", "default": "Cycliste provisoire simple ; aucun achat sans accord"}
+    {
+      "id": "D01",
+      "question": "Quels plafonds en euros et en tokens ?",
+      "blocking_for": "Tout achat ou engagement financier",
+      "default": "Aucun achat ni service payant"
+    },
+    {
+      "id": "D02",
+      "question": "Quelle version Godot et quel plugin SQLite ?",
+      "status": "resolved",
+      "resolution": "Godot 4.7.2-stable + godot-sqlite v4.7 (2026-10-22)"
+    },
+    {
+      "id": "D03",
+      "question": "Quel trainer et quel firmware sont disponibles ?",
+      "blocking_for": "Validation matérielle HW-001/HW-002",
+      "default": "Développement FakeTrainer possible ; matériel non déclaré compatible",
+      "status": "resolved",
+      "resolution": "Zwift Ride + Wahoo KICKR CORE Zwift One (2026-10-22). Support FTMS à confirmer par HW-001."
+    },
+    {
+      "id": "D04",
+      "question": "La DA stylisée proposée correspond-elle à la direction voulue ?",
+      "status": "resolved",
+      "resolution": "Oui : stylisé soigné, réalisme écarté (2026-10-22). Validation finale sur la scène témoin ART-001."
+    },
+    {
+      "id": "D05",
+      "question": "Quelle machine de référence et quelle cible de performance ?",
+      "blocking_for": "Clôture performance QA-001",
+      "default": "Mesures observées, sans promesse de FPS"
+    },
+    {
+      "id": "D06",
+      "question": "Quelles règles d'âge, de progression et d'équilibrage entre modes ?",
+      "blocking_for": "Équilibrage final",
+      "default": "Paramètres configurables et scénarios de validation"
+    },
+    {
+      "id": "D07",
+      "question": "Quel format d'import prioritaire si différent de ZWO ?",
+      "blocking_for": "Extension au-delà du sous-ensemble initial proposé",
+      "default": "Sous-ensemble ZWO documenté"
+    },
+    {
+      "id": "D08",
+      "question": "Budget pour le modèle de cycliste riggé de la scène témoin ?",
+      "blocking_for": "ART-001 (au-delà d'un cycliste provisoire)",
+      "default": "Cycliste provisoire simple ; aucun achat sans accord",
+      "status": "resolved",
+      "resolution": "0 € (2026-10-22) : corps MakeHuman/MPFB (export CC0) stylisé, vélo modélisé par script Blender, pédalage par cinématique inverse piloté par la cadence. Modèles du commerce écartés (licences éditoriales, budgets de polygones dépassés). Devis freelance éventuel après la scène témoin."
+    }
   ]
 }

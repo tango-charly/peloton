@@ -24,3 +24,9 @@
 - Estimations à calibrer : rendement de transmission 0,976 ; aspiration -35 % à ≤ 1 m, nulle à 5 m ; Crr par surface ; forme du jour σ = 2 % (bornée ±5 %) ; profils du peloton fictif (W/kg, W', CdA).
 - W' : modèle différentiel de Skiba.
 - Lanceur de tests : une suite qui ne compile pas compte en échec (avant : blocage) ; `check.sh` borne la durée et ferme l'entrée standard.
+
+## 2026-10-22 — BLE (HW-001)
+- GDBLE v0.5.5 retenu en premier (binaire Windows fourni, MIT, chargé sous 4.7.2). Décision définitive après l'essai sur le KICKR CORE ; repli : pont local.
+- Décodage FTMS en GDScript pur (`src/trainer/ftms.gd`), indépendant du transport.
+- Sonde en lecture seule : aucune écriture sur le point de contrôle avant HW-002.
+- Appels de déconnexion via `BluetoothManager.disconnect_device` : `BleDevice.disconnect()` masque `Object.disconnect(signal, callable)`.
